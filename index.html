@@ -372,8 +372,89 @@
       padding: 4px 10px;
       border-radius: 6px;
     }
+    
+    /* ====================4.INSPIRATION & PASSION SECTION ==================== */
+    .inspiration-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 24px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      align-items: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
 
-    /* ==================== 4. CONTACT SECTION ==================== */
+    .inspiration-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+      background: #131b2e;
+    }
+
+    .inspiration-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .inspiration-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .inspiration-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+
+    .inspiration-content p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .quote-box {
+      padding: 16px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(56, 189, 248, 0.06);
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+      color: #e2e8f0;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 900px) {
+      .inspiration-card {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+      .inspiration-img {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+    }
+
+    /* ==================== 5. CONTACT SECTION ==================== */
     .contact-box {
       background: var(--bg-card);
       border: 1px solid var(--border-glow);
@@ -721,7 +802,37 @@
       </div>
     </div>
   </section>
+  <!--4. PHẦN ĐAM MÊ BÓNG ĐÁ & NGUỒN CẢM HỨNG -->
+  <section class="section-container" id="inspiration">
+    <div class="section-header">
+      <h2>Passion & <span>Inspiration</span></h2>
+      <p>Niềm đam mê sân cỏ và nguồn cảm hứng rèn luyện kỷ luật mỗi ngày</p>
+    </div>
 
+    <div class="inspiration-card">
+      <div class="inspiration-img">
+        <img src="ronaldo7.png" alt="Cristiano Ronaldo - Nguồn cảm hứng" />
+      </div>
+
+      <div class="inspiration-content">
+        <div class="inspiration-badge">
+          <i class="fa-solid fa-futbol"></i> Football & Mindset
+        </div>
+        <h3>Cristiano Ronaldo — Biểu tượng của sự nỗ lực không ngừng</h3>
+        <p>
+          Ngoài những giờ phút tập trung làm việc và học hành, bóng đá là niềm đam mê lớn nhất giúp mình cân bằng cuộc sống, cải thiện sức khỏe. Thần tượng lớn nhất của mình là <strong>Cristiano Ronaldo (CR7)</strong> — người đã chứng minh rằng tài năng chỉ là điểm khởi đầu,
+          chính sự kỷ luật thép, ý chí kiên cường và khát khao hoàn thiện bản thân mỗi ngày mới tạo nên đỉnh cao.
+        </p>
+        <p>
+          Mình luôn mang tinh thần đó vào công việc lập trình: không ngại những bài toán khó, kiên trì tối ưu từng chi tiết nhỏ và luôn giữ lửa đam mê.
+        </p>
+        <div class="quote-box">
+          "Talent without working hard is nothing." — Tài năng mà không khổ luyện thì chẳng là gì cả.
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- 5. LIÊN HỆ (CONTACT) -->
   <section class="section-container" id="contact">
     <div class="section-header">
       <h2>Get In <span>Touch</span></h2>
@@ -763,7 +874,7 @@
   </section>
 
   <footer>
-    © 2026 Vu Duy Manh Tuan. Built with passion & clean code.
+    © 2026 Vu Duy Manh Tuan. Built with passion.
   </footer>
 
   <nav class="side-nav" aria-label="Điều hướng nhanh">
