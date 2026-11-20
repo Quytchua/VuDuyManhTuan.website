@@ -1,36 +1,404 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quytchua | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vũ Duy Mạnh Tuấn (Quytchua) | Developer & IT Systems Portfolio</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-soft: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --border: rgba(148, 163, 184, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: radial-gradient(circle at top, #172554 0%, var(--bg) 52%);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 24px 16px 64px;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.4px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(129, 140, 248, 0.1));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      margin-bottom: 22px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--accent);
+      font-size: 0.96rem;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+      max-width: 70ch;
+      margin-bottom: 22px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: transform 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #090d16;
+    }
+
+    .btn-secondary {
+      background: var(--surface-soft);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    /* Sections & Cards */
+    section {
+      background: rgba(17, 24, 39, 0.84);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    p {
+      color: #cbd5e1;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .info-item {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .info-item span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .info-item strong {
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+
+    /* Skills */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .skills-list li {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .project-card {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .project-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .project-card p {
+      font-size: 0.94rem;
+    }
+
+    /* Idol Section */
+    .idol-box {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .idol-box {
+        grid-template-columns: 280px 1fr;
+        align-items: center;
+      }
+    }
+
+    .idol-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    /* Contact */
+    .contact-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 28px;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <header>
+      <a href="#" class="brand">Quytchua<span>.dev</span></a>
+      <nav>
+        <a href="#about">Về tôi</a>
+        <a href="#skills">Kỹ năng</a>
+        <a href="#projects">Dự án</a>
+        <a href="#idol">Cảm hứng</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+    </header>
 
-    <h1>Hello, I'm Quytchua 👋</h1>
+    <div class="hero">
+      <div class="badge">Web Developer • IT Infrastructure & Systems</div>
+      <h1>Xin chào, tôi là Vũ Duy Mạnh Tuấn 👋</h1>
+      <div class="subtitle">Alias: Quytchua • Sinh ngày 05/07/2005 • Việt Nam 🇻🇳</div>
+      <p>
+        Tôi là một người làm kỹ thuật và lập trình viên yêu thích việc xây dựng các sản phẩm web gọn nhẹ,
+        tốc độ cao cùng nền tảng hạ tầng hệ thống vững chắc. Tôi luôn ưu tiên tư duy thực chiến, mã nguồn sạch
+        và tối ưu trải nghiệm người dùng thực tế.
+      </p>
+      <div class="cta-group">
+        <a href="#projects" class="btn btn-primary">Xem dự án</a>
+        <a href="https://github.com/quytchua" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          GitHub Profile
+        </a>
+      </div>
+    </div>
 
-    <p>Welcome to my personal portfolio.</p>
+    <section id="about">
+      <h2>🧑‍💻 Về tôi</h2>
+      <p>
+        Xuất phát từ niềm đam mê tìm hiểu cách hệ thống mạng, máy chủ và website vận hành từ cốt lõi, tôi tập trung
+        vào việc tự tay thiết kế và triển khai các giải pháp web tối giản nhưng hiệu quả cao, hạn chế phụ thuộc vào
+        các công cụ nặng nề. Với tôi, mỗi dòng code hay cấu hình hệ thống đều hướng tới sự ổn định, bảo mật và dễ mở rộng.
+      </p>
+      <div class="info-grid">
+        <div class="info-item">
+          <span>Họ và tên</span>
+          <strong>Vũ Duy Mạnh Tuấn</strong>
+        </div>
+        <div class="info-item">
+          <span>Ngày sinh</span>
+          <strong>05/07/2005</strong>
+        </div>
+        <div class="info-item">
+          <span>Định hướng</span>
+          <strong>Web Development & IT Systems</strong>
+        </div>
+      </div>
+    </section>
 
-    <h2>👨‍💻 About Me</h2>
-    <p>
-        I'm a developer from Vietnam 🇻🇳 who loves programming,
-        technology and building new things.
-    </p>
+    <section id="skills">
+      <h2>🛠️ Kỹ năng & Công nghệ</h2>
+      <p>Các ngôn ngữ lập trình và nền tảng kỹ thuật tôi sử dụng trong công việc và dự án cá nhân:</p>
+      <ul class="skills-list">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>WordPress / PHP</li>
+        <li>Quản trị mạng & Hệ thống</li>
+        <li>GitHub</li>
+      </ul>
+    </section>
 
-    <h2>🛠️ Skills</h2>
-    <p>HTML • CSS • JavaScript • Python • C</p>
+    <section id="projects">
+      <h2>🚀 Dự án tiêu biểu</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            Trang hồ sơ cá nhân viết bằng HTML/CSS thuần, tối ưu tốc độ tải trang, hỗ trợ hiển thị đa thiết bị
+            và triển khai tự động qua GitHub Pages.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>Landing Page & Web Solutions</h3>
+          <p>
+            Thiết kế và tối ưu giao diện landing page bán hàng chuẩn di động, tập trung vào bố cục trực quan,
+            tốc độ phản hồi nhanh và trải nghiệm người dùng mượt mà.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <h2>🚀 Projects</h2>
-    <p>More projects coming soon...</p>
-    <h2>⚽ My Idol - Cristiano Ronaldo</h2>
+    <section id="idol">
+      <h2>⚽ Nguồn cảm hứng — Cristiano Ronaldo</h2>
+      <div class="idol-box">
+        <img src="ronaldo7.png" alt="Cristiano Ronaldo" />
+        <div>
+          <p>
+            Cristiano Ronaldo là biểu tượng cho tinh thần kỷ luật thép, ý chí không bao giờ bỏ cuộc và khát khao
+            tự vượt qua giới hạn của chính mình mỗi ngày. Đó cũng là nguyên tắc tôi áp dụng vào hành trình học tập,
+            lập trình và chinh phục các mục tiêu nghề nghiệp.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<img src="ronaldo7.png"
-     alt="Cristiano Ronaldo"
-     width="500"
-     style="max-width:100%; border-radius:15px;">
-    <h2>📫 Contact</h2>
-    <p>GitHub: Quytchua</p>
+    <section id="contact">
+      <h2>📬 Liên hệ & Kết nối</h2>
+      <p>
+        Bạn có thể theo dõi các dự án mới nhất hoặc trao đổi công việc với tôi qua GitHub:
+        <a class="contact-link" href="https://github.com/quytchua" target="_blank" rel="noopener noreferrer">
+          github.com/quytchua
+        </a>
+      </p>
+    </section>
 
+    <footer>
+      © 2026 Vũ Duy Mạnh Tuấn (Quytchua). Thiết kế & phát triển với HTML/CSS/PHP chuẩn.
+    </footer>
+  </div>
 </body>
 </html>
